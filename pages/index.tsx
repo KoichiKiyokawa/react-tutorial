@@ -1,5 +1,5 @@
-import { Square } from "../components/Square"
+import { Game } from "../components/Game"
 
 export default function App() {
-  return <Square value={null} />
+  return <Game />
 }
