@@ -13,8 +13,11 @@ export const Board: React.FC = () => {
   const [squares, setSquares] = useState<SquareState[]>(Array(9).fill(null))
   const [xIsNext, setXIsNext] = useState(true)
 
-  const handleClick = () => {
-    console.log("handleClick")
+  const handleClick = (i: number) => {
+    const newSquares = [...squares]
+    newSquares[i] = xIsNext ? "X" : "O"
+    setSquares(newSquares)
+    setXIsNext((prev) => !prev)
   }
 
   return (
@@ -23,7 +26,7 @@ export const Board: React.FC = () => {
       <div className="board">
         {squares.map((square, i) => (
           // keyにindexを使う
-          <Square key={i} value={square} onClick={handleClick} />
+          <Square key={i} value={square} onClick={() => handleClick(i)} />
         ))}
       </div>
     </div>
