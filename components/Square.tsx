@@ -14,13 +14,14 @@ export type SquareState = null | "O" | "X"
 
 type Props = {
   value: SquareState
+  onClick: () => void
 }
 
-export function Square(props: Props) {
+export function Square({ onClick }: Props) {
   const [value, setValue] = useState<Props["value"]>(null)
 
   return (
-    <button onClick={() => setValue("X")} className="square">
+    <button onClick={onClick} className="square">
       {value}
     </button>
   )

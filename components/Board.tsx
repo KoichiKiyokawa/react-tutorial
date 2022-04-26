@@ -11,8 +11,11 @@ type Props = {}
 
 export const Board: React.FC = () => {
   const [squares, setSquares] = useState<SquareState[]>(Array(9).fill(null))
+  const [xIsNext, setXIsNext] = useState(true)
 
-  const renderSquare = (i: number) => <Square value={squares[i]} />
+  const handleClick = () => {
+    console.log("handleClick")
+  }
 
   return (
     <div>
@@ -20,7 +23,7 @@ export const Board: React.FC = () => {
       <div className="board">
         {squares.map((square, i) => (
           // keyにindexを使う
-          <Square key={i} value={square} />
+          <Square key={i} value={square} onClick={handleClick} />
         ))}
       </div>
     </div>
