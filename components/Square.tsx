@@ -8,8 +8,6 @@
 //   }
 // }
 
-import { useState } from "react"
-
 export type SquareState = null | "O" | "X"
 
 type Props = {
@@ -17,9 +15,7 @@ type Props = {
   onClick: () => void
 }
 
-export function Square({ onClick }: Props) {
-  const [value, setValue] = useState<Props["value"]>(null)
-
+export function Square({ value, onClick }: Props) {
   return (
     <button onClick={onClick} className="square">
       {value}
